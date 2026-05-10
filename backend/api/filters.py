@@ -45,9 +45,5 @@ class IngredientFilter(filters.FilterSet):
 
     def filter_name(self, queryset, name, value):
         if value:
-            starts_with = Q(name__istartswith=value)
-            contains = Q(name__icontains=value)
-            return queryset.filter(
-                starts_with | contains
-            ).distinct().order_by('-name__istartswith', 'name')[:20]
+            return queryset.filter(name__istartswith=value).order_by('name')
         return queryset
