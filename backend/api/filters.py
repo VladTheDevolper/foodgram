@@ -1,5 +1,4 @@
 from django_filters import rest_framework as filters
-from django.db.models import Q
 from recipes.models import Recipe, Tag, Ingredient
 
 
